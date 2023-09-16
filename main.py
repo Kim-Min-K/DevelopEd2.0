@@ -1,9 +1,7 @@
 import pygame
-
 import pygame_menu
 import pygame.font
 from pygame_menu import themes
-
 import random
 
 
@@ -11,18 +9,8 @@ import random
 def main():
     pygame.init()
 
-    display_surface = pygame.display.set_mo
-    de((1280, 720))
+    display_surface = pygame.display.set_mode((1280, 720))
     pygame.display.set_caption("Menu")
-
-    # Menu Page 
-    font = pygame.font.Font('freesansbold.ttf',100)
-    text = font.render("Welcome!",True, (255,255,255))
-    textRect = text.get_rect()
-    textRect.center = (200,200)
-
-    display_surface.blit(text, (640,360))
-    pygame.display.update()
 
 
     w_surface = pygame.display.get_surface()
@@ -82,6 +70,10 @@ class Game:
             if event.type == pygame.QUIT:
                 self.close_clicked = True
 
+    def mainMenu(self):
+
+        pass
+
     def draw(self):
         self.surface.fill(self.bg_color)
         random.choice(self.buttons).draw()
@@ -104,10 +96,10 @@ class Game:
     def decide_continue(self):
         pass
 
+#====================================================================
 
 class Red_Button():
 
-    main()
     def __init__(self,surface):
 
         self.surface = surface
@@ -153,4 +145,7 @@ class Yellow_Button():
 
     def draw(self):
         pygame.draw.circle(self.surface,self.color,self.center,self.radius)
+
+
+
 main()
