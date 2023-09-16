@@ -41,7 +41,10 @@ class Game:
             self.game_clock.tick(self.fps)
 
     def handle_events(self):
-        pass
+        events = pygame.event.get()
+        for event in events:
+            if event.type == pygame.QUIT:
+                self.close_clicked = True
 
     def draw(self):
         self.surface.fill(self.bg_color)
