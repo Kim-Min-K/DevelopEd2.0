@@ -1,17 +1,18 @@
 import pygame
-<<<<<<< HEAD
+
 import pygame_menu
 import pygame.font
 from pygame_menu import themes
-#===============
+
 import random
->>>>>>> 4507a2bd0ee47ac24ee3abe4b3998eca9d5aaa9d
+
 
 
 def main():
     pygame.init()
 
-    display_surface = pygame.display.set_mode((1280, 720))
+    display_surface = pygame.display.set_mo
+    de((1280, 720))
     pygame.display.set_caption("Menu")
 
     # Menu Page 
@@ -103,15 +104,10 @@ class Game:
     def decide_continue(self):
         pass
 
-<<<<<<< HEAD
-if __name__ == '__main__':
-=======
-class Red_Button():
->>>>>>> 4507a2bd0ee47ac24ee3abe4b3998eca9d5aaa9d
 
-<<<<<<< HEAD
+class Red_Button():
+
     main()
-=======
     def __init__(self,surface):
 
         self.surface = surface
@@ -158,4 +154,3 @@ class Yellow_Button():
     def draw(self):
         pygame.draw.circle(self.surface,self.color,self.center,self.radius)
 main()
->>>>>>> 4507a2bd0ee47ac24ee3abe4b3998eca9d5aaa9d
