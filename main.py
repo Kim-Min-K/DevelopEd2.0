@@ -4,7 +4,7 @@ import pygame
 def main():
     pygame.init()
 
-    pygame.display.set_mode((500, 400))
+    pygame.display.set_mode((1280, 720))
 
     pygame.display.set_caption('Bop-It')
 
@@ -24,12 +24,12 @@ class Game:
         self.surface = surface
         self.bg_color = pygame.Color("black")
 
-        self.fps = 60
+        self.fps = 1
         self.game_clock = pygame.time.Clock()
         self.close_clicked = False
         self.continue_game = True
 
-        self.time_left = 50.0
+        self.time_left = 60.0
 
     def play(self):
         while not self.close_clicked:
@@ -57,11 +57,12 @@ class Game:
         font = pygame.font.SysFont("",font_size)
         timer_text = font.render(str(self.time_left),True,font_color,self.bg_color)
 
-        timer_location = (0,0)
+        timer_location = (1100,0)
         self.surface.blit(timer_text,timer_location)
 
     def update(self):
-        self.time_left += 1
+        self.time_left -= 1
+        
 
     def decide_continue(self):
         pass
