@@ -1,4 +1,5 @@
 import pygame
+import os
 import pygame_menu
 import pygame.font
 from pygame_menu import themes
@@ -11,6 +12,15 @@ def main():
 
     display_surface = pygame.display.set_mode((1280, 720))
     pygame.display.set_caption("Menu")
+
+    # Menu Page 
+    font = pygame.font.Font('freesansbold.ttf',100)
+    text = font.render("Welcome!",True, (255,255,255))
+    textRect = text.get_rect()
+    textRect.center = (200,200)
+
+    display_surface.blit(text, (640,360))
+    pygame.display.update()
 
 
     w_surface = pygame.display.get_surface()
@@ -51,6 +61,10 @@ class Game:
         self.buttons.append(self.green_button)
         self.yellow_button = Yellow_Button(surface)
         self.buttons.append(self.yellow_button)
+        self.twist_switch = Twist_Switch(surface)
+        self.buttons.append(self.twist_switch)
+        self.push_switch = Push_Switch(surface)
+        self.buttons.append(self.push_switch)
 
 
         self.time_left = 60.0
@@ -69,10 +83,6 @@ class Game:
         for event in events:
             if event.type == pygame.QUIT:
                 self.close_clicked = True
-
-    def mainMenu(self):
-
-        pass
 
     def draw(self):
         self.surface.fill(self.bg_color)
@@ -96,7 +106,6 @@ class Game:
     def decide_continue(self):
         pass
 
-#====================================================================
 
 class Red_Button():
 
@@ -104,11 +113,13 @@ class Red_Button():
 
         self.surface = surface
         self.radius = 80
-        self.center = (self.surface.get_width()/2,self.surface.get_height()/2)
-        self.color = pygame.Color("red")
+        self.center = (self.surface.get_width()/4 + 40,self.surface.get_height()/10)
+        self.red_button_img = pygame.image.load(os.path.join('Assets', 'RedButton.jpg'))
+        self.red_button_img = pygame.transform.scale(self.red_button_img, (550,550))
 
+    # draw the button image to the center of the screen
     def draw(self):
-        pygame.draw.circle(self.surface,self.color,self.center,self.radius)
+        self.surface.blit(self.red_button_img, self.center)
 
 class Blue_Button():
 
@@ -116,11 +127,12 @@ class Blue_Button():
 
         self.surface = surface
         self.radius = 80
-        self.center = (self.surface.get_width()/2,self.surface.get_height()/2)
-        self.color = pygame.Color("blue")
+        self.center = (self.surface.get_width()/4 + 40,self.surface.get_height()/10)
+        self.blue_button_img = pygame.image.load(os.path.join('Assets', 'BlueButton.jpg'))
+        self.blue_button_img = pygame.transform.scale(self.blue_button_img, (550,550))
 
     def draw(self):
-        pygame.draw.circle(self.surface,self.color,self.center,self.radius)
+        self.surface.blit(self.blue_button_img, self.center)
 
 class Green_Button():
 
@@ -128,11 +140,12 @@ class Green_Button():
 
         self.surface = surface
         self.radius = 80
-        self.center = (self.surface.get_width()/2,self.surface.get_height()/2)
-        self.color = pygame.Color("green")
+        self.center = (self.surface.get_width()/4 + 40,self.surface.get_height()/10)
+        self.green_button_img = pygame.image.load(os.path.join('Assets', 'GreenButton.jpg'))
+        self.green_button_img = pygame.transform.scale(self.green_button_img, (550,550))
 
     def draw(self):
-        pygame.draw.circle(self.surface,self.color,self.center,self.radius)
+        self.surface.blit(self.green_button_img, self.center)
 
 class Yellow_Button():
 
@@ -140,12 +153,36 @@ class Yellow_Button():
 
         self.surface = surface
         self.radius = 80
-        self.center = (self.surface.get_width()/2,self.surface.get_height()/2)
-        self.color = pygame.Color("yellow")
+        self.center = (self.surface.get_width()/4 + 40,self.surface.get_height()/10)
+        self.yellow_button_img = pygame.image.load(os.path.join('Assets', 'YellowButton.jpg'))
+        self.yellow_button_img = pygame.transform.scale(self.yellow_button_img, (550,550))
 
     def draw(self):
-        pygame.draw.circle(self.surface,self.color,self.center,self.radius)
+        self.surface.blit(self.yellow_button_img, self.center)
 
+class Twist_Switch():
 
+    def __init__(self,surface):
 
+        self.surface = surface
+        self.radius = 80
+        self.center = (self.surface.get_width()/4 + 40,self.surface.get_height()/10)
+        self.twist_switch_img = pygame.image.load(os.path.join('Assets', 'TwistSwitch.jpg'))
+        self.twist_switch_img = pygame.transform.scale(self.twist_switch_img, (550,550))
+
+    def draw(self):
+        self.surface.blit(self.twist_switch_img, self.center)
+        
+class Push_Switch():
+
+    def __init__(self,surface):
+
+        self.surface = surface
+        self.radius = 80
+        self.center = (self.surface.get_width()/4 + 40,self.surface.get_height()/10)
+        self.push_switch_img = pygame.image.load(os.path.join('Assets', 'PushSwitch.jpg'))
+        self.push_switch_img = pygame.transform.scale(self.push_switch_img, (550,550))
+
+    def draw(self):
+        self.surface.blit(self.push_switch_img, self.center)
 main()
