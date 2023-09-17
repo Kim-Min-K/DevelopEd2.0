@@ -45,7 +45,7 @@ class Game:
         self.red_button = Red_Button(surface)
         self.buttons.append(self.red_button)
         self.blue_button = Blue_Button(surface)
-	@@ -73,43 +59,121 @@ def __init__(self, surface):
+    def __init__(self, surface):
         self.time_left = 60.0
 
     def play(self):
@@ -167,3 +167,4 @@ class Game:
 class Red_Button():
 
     def __init__(self,surface):
+        pass
