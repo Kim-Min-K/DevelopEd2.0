@@ -5,7 +5,9 @@ import pygame.font
 from pygame_menu import themes
 import random
 
-
+def main_menu():
+    while True:
+        print("hello")
 
 def main():
     pygame.init()
@@ -27,6 +29,7 @@ def main():
 
     game = Game(w_surface)
 
+    main_menu()
 
     game.play()
 
