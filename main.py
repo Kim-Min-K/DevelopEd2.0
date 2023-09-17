@@ -193,9 +193,9 @@ class Red_Button():
         self.radius = 80
         self.center = (self.surface.get_width()/4 + 40,self.surface.get_height()/10)
         try:
-            self.blue_button_img = pygame.image.load(os.path.join('Assets', 'RedButton.png'))
+            self.red_button_img = pygame.image.load(os.path.join('Assets', 'RedButton.png'))
         except:
-            self.blue_button_img = pygame.image.load('/home/logan/Project/DevelopEd2.0/Assets/RedButton.png')
+            self.red_button_img = pygame.image.load('/home/logan/Project/DevelopEd2.0/Assets/RedButton.png')
 
     # draw the button image to the center of the screen
     def draw(self):
