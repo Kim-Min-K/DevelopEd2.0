@@ -45,7 +45,6 @@ class Game:
         self.red_button = Red_Button(surface)
         self.buttons.append(self.red_button)
         self.blue_button = Blue_Button(surface)
-    def __init__(self, surface):
         self.time_left = 60.0
 
     def play(self):
@@ -167,10 +166,6 @@ class Game:
 class Red_Button():
 
     def __init__(self,surface):
-<<<<<<< Updated upstream
-        pass
-=======
-
         self.surface = surface
         self.radius = 80
         self.center = (self.surface.get_width()/4 + 40,self.surface.get_height()/10)
@@ -245,4 +240,3 @@ class Push_Switch():
     def draw(self):
         self.surface.blit(self.push_switch_img, self.center)
 main()
->>>>>>> Stashed changes
