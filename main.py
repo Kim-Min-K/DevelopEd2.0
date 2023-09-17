@@ -192,8 +192,10 @@ class Red_Button():
         self.surface = surface
         self.radius = 80
         self.center = (self.surface.get_width()/4 + 40,self.surface.get_height()/10)
-        self.red_button_img = pygame.image.load(os.path.join('Assets', 'RedButton.png'))
-        self.red_button_img = pygame.transform.scale(self.red_button_img, (550,550))
+        try:
+            self.blue_button_img = pygame.image.load(os.path.join('Assets', 'RedButton.png'))
+        except:
+            self.blue_button_img = pygame.image.load('/home/logan/Project/DevelopEd2.0/Assets/RedButton.png')
 
     # draw the button image to the center of the screen
     def draw(self):
@@ -206,7 +208,10 @@ class Blue_Button():
         self.surface = surface
         self.radius = 80
         self.center = (self.surface.get_width()/4 + 40,self.surface.get_height()/10)
-        self.blue_button_img = pygame.image.load(os.path.join('Assets', 'BlueButton.png'))
+        try:
+            self.blue_button_img = pygame.image.load(os.path.join('Assets', 'BlueButton.png'))
+        except:
+            self.blue_button_img = pygame.image.load('/home/logan/Project/DevelopEd2.0/Assets/BlueButton.png')
         self.blue_button_img = pygame.transform.scale(self.blue_button_img, (550,550))
 
     def draw(self):
@@ -219,7 +224,10 @@ class Green_Button():
         self.surface = surface
         self.radius = 80
         self.center = (self.surface.get_width()/4 + 40,self.surface.get_height()/10)
-        self.green_button_img = pygame.image.load(os.path.join('Assets', 'GreenButton.png'))
+        try:
+            self.green_button_img = pygame.image.load(os.path.join('Assets', 'GreenButton.png'))
+        except:
+            self.blue_button_img = pygame.image.load('/home/logan/Project/DevelopEd2.0/Assets/GreenButton.png')
         self.green_button_img = pygame.transform.scale(self.green_button_img, (550,550))
 
     def draw(self):
@@ -232,7 +240,10 @@ class Yellow_Button():
         self.surface = surface
         self.radius = 80
         self.center = (self.surface.get_width()/4 + 40,self.surface.get_height()/10)
-        self.yellow_button_img = pygame.image.load(os.path.join('Assets', 'YellowButton.png'))
+        try:
+            self.yellow_button_img = pygame.image.load(os.path.join('Assets', 'YellowButton.png'))
+        except:
+            self.blue_button_img = pygame.image.load('/home/logan/Project/DevelopEd2.0/Assets/YellowButton.png')
         self.yellow_button_img = pygame.transform.scale(self.yellow_button_img, (550,550))
 
     def draw(self):
@@ -245,7 +256,10 @@ class Twist_Switch():
         self.surface = surface
         self.radius = 80
         self.center = (self.surface.get_width()/4 + 40,self.surface.get_height()/10)
-        self.twist_switch_img = pygame.image.load(os.path.join('Assets', 'TwistSwitch.png'))
+        try:
+            self.twist_switch_img = pygame.image.load(os.path.join('Assets', 'TwistSwitch.png'))
+        except:
+            self.blue_button_img = pygame.image.load('/home/logan/Project/DevelopEd2.0/Assets/TwistSwitch.png')
         self.twist_switch_img = pygame.transform.scale(self.twist_switch_img, (550,550))
 
     def draw(self):
@@ -257,7 +271,10 @@ class Push_Switch():
         self.surface = surface
         self.radius = 80
         self.center = (self.surface.get_width()/4 + 40,self.surface.get_height()/10)
-        self.push_switch_img = pygame.image.load(os.path.join('Assets', 'PushSwitch.png'))
+        try:
+            self.push_switch_img = pygame.image.load(os.path.join('Assets', 'PushSwitch.png'))
+        except:
+            self.blue_button_img = pygame.image.load('/home/logan/Project/DevelopEd2.0/Assets/PushSwitch.png')
         self.push_switch_img = pygame.transform.scale(self.push_switch_img, (550,550))
 
     def draw(self):
