@@ -38,6 +38,7 @@ class Game:
         self.button_streak = 0
         self.just_scored = False
 
+
         self.highlighted = 0
         self.highlighted_color = (255,0,0)
         self.difficulty = "Easy"
@@ -63,6 +64,7 @@ class Game:
         self.buttons.append(self.push_switch)
 
         self.time_left = 60.0
+        self.time_added = 1.0
 
     def play(self):
         while True:
@@ -83,10 +85,17 @@ class Game:
 
     def if_scored(self):
         if self.just_scored == True:
+            self.just_scored = False
             self.current_button = random.randint(0,5)   # choose new button
+            self.time_left += self.time_added
+
     
     def handle_events(self):
         events = pygame.event.get() # needs to be called or crashes
+        for i in range(6):
+            
+            if i == 5:
+                return
 
     
 
