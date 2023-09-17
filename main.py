@@ -4,9 +4,9 @@ import pygame.font
 import random
 
 
+
 def main():
     pygame.init()
-
     display_surface = pygame.display.set_mode((1280, 720))
     pygame.display.set_caption("Menu")
 
