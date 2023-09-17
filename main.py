@@ -5,14 +5,16 @@ import pygame.font
 from pygame_menu import themes
 import random
 
+imgBackground = pygame.image.load("Assets/Background_menu.png")
+
 def main_menu():
     while True:
         print("hello")
 
 def main():
     pygame.init()
-
     display_surface = pygame.display.set_mode((1280, 720))
+    display_surface.blit(imgBackground, (0, 0))
     pygame.display.set_caption("Menu")
 
     # Menu Page 
