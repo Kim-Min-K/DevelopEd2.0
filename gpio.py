@@ -30,4 +30,4 @@ def updateState():
     pushGreen = getInput(greenSwitch)
     pushRed = getInput(redSwitch)
     pushBlue = getInput(blueSwitch)
-    switchBlue =                                            
+    switchBlue =                  

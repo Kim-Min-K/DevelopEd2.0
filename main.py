@@ -172,7 +172,6 @@ class Twist_Switch():
 
     def draw(self):
         self.surface.blit(self.twist_switch_img, self.center)
-        
 class Push_Switch():
 
     def __init__(self,surface):
