@@ -68,8 +68,8 @@ class Game:
         while True:
             if not self.start_game:     # have not started the game yet
                 self.main_menu()
-            self.handle_events()
-            self.check_if_scored()
+            self.handle_events()   # set if scored or not
+            self.if_scored() # update score and clock
             self.draw()
             if self.continue_game:
                 if not self.difficulty_set:   # first entrance into game
@@ -81,9 +81,9 @@ class Game:
                 self.start_game = False
             self.game_clock.tick(self.fps)
 
-    def check_if_scored(self):
+    def if_scored(self):
         if self.just_scored == True:
-            pass
+            self.current_button = random.randint(0,5)   # choose new button
     
     def handle_events(self):
         events = pygame.event.get() # needs to be called or crashes
@@ -148,6 +148,7 @@ class Game:
                 self.time_left = 45.0
             elif self.difficulty == "Hard":
                 self.time_left = 5.0
+            self.current_button = random.randint(0,5)  # pick a random button to press next
 
     def draw_menu(self):
         self.surface.fill(self.bg_color)
