@@ -113,13 +113,14 @@ class Game:
 
     # enter once per game to set difficulty variables
     def set_difficulty(self):
-        self.difficulty_set = True
-        if self.difficulty == "Easy":
-            self.time_left = 60.0
-        elif self.difficulty == "Medium":
-            self.time_left = 45.0
-        elif self.difficulty == "Hard":
-            self.time_left = 5.0
+        if self.difficulty_set == False:        # set difficutly to on first entrance
+            self.difficulty_set = True
+            if self.difficulty == "Easy":
+                self.time_left = 60.0
+            elif self.difficulty == "Medium":
+                self.time_left = 45.0
+            elif self.difficulty == "Hard":
+                self.time_left = 5.0
 
     def draw_menu(self):
         self.surface.fill(self.bg_color)
@@ -160,11 +161,88 @@ class Game:
             self.surface.fill(self.bg_color)
             self.continue_game = False
             self.difficulty_set = False
-            self.difficulty = "Easy"
 
 
 
 class Red_Button():
 
     def __init__(self,surface):
+<<<<<<< Updated upstream
         pass
+=======
+
+        self.surface = surface
+        self.radius = 80
+        self.center = (self.surface.get_width()/4 + 40,self.surface.get_height()/10)
+        self.red_button_img = pygame.image.load(os.path.join('Assets', 'RedButton.png'))
+        self.red_button_img = pygame.transform.scale(self.red_button_img, (550,550))
+
+    # draw the button image to the center of the screen
+    def draw(self):
+        self.surface.blit(self.red_button_img, self.center)
+
+class Blue_Button():
+
+    def __init__(self,surface):
+
+        self.surface = surface
+        self.radius = 80
+        self.center = (self.surface.get_width()/4 + 40,self.surface.get_height()/10)
+        self.blue_button_img = pygame.image.load(os.path.join('Assets', 'BlueButton.png'))
+        self.blue_button_img = pygame.transform.scale(self.blue_button_img, (550,550))
+
+    def draw(self):
+        self.surface.blit(self.blue_button_img, self.center)
+
+class Green_Button():
+
+    def __init__(self,surface):
+
+        self.surface = surface
+        self.radius = 80
+        self.center = (self.surface.get_width()/4 + 40,self.surface.get_height()/10)
+        self.green_button_img = pygame.image.load(os.path.join('Assets', 'GreenButton.png'))
+        self.green_button_img = pygame.transform.scale(self.green_button_img, (550,550))
+
+    def draw(self):
+        self.surface.blit(self.green_button_img, self.center)
+
+class Yellow_Button():
+
+    def __init__(self,surface):
+
+        self.surface = surface
+        self.radius = 80
+        self.center = (self.surface.get_width()/4 + 40,self.surface.get_height()/10)
+        self.yellow_button_img = pygame.image.load(os.path.join('Assets', 'YellowButton.png'))
+        self.yellow_button_img = pygame.transform.scale(self.yellow_button_img, (550,550))
+
+    def draw(self):
+        self.surface.blit(self.yellow_button_img, self.center)
+
+class Twist_Switch():
+
+    def __init__(self,surface):
+
+        self.surface = surface
+        self.radius = 80
+        self.center = (self.surface.get_width()/4 + 40,self.surface.get_height()/10)
+        self.twist_switch_img = pygame.image.load(os.path.join('Assets', 'TwistSwitch.png'))
+        self.twist_switch_img = pygame.transform.scale(self.twist_switch_img, (550,550))
+
+    def draw(self):
+        self.surface.blit(self.twist_switch_img, self.center)
+class Push_Switch():
+
+    def __init__(self,surface):
+
+        self.surface = surface
+        self.radius = 80
+        self.center = (self.surface.get_width()/4 + 40,self.surface.get_height()/10)
+        self.push_switch_img = pygame.image.load(os.path.join('Assets', 'PushSwitch.png'))
+        self.push_switch_img = pygame.transform.scale(self.push_switch_img, (550,550))
+
+    def draw(self):
+        self.surface.blit(self.push_switch_img, self.center)
+main()
+>>>>>>> Stashed changes
