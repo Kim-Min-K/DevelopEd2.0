@@ -34,6 +34,15 @@ def updateState():
     twishBlack = getInput(twistSwitch)
 
     return pushBlue,pushGreen,pushRed,pushYellow,switchBlue,twishBlack
-while True:
-    pushBlue,pushGreen,pushRed,pushYellow,switchBlue,twishBlack = updateState()
-    print('Blue Button: {Blue} \n Green Button {green} \n Red Button {red} \n Yellow Button {yellow} \n Push Switch {push} \n Twist Swtich {twist}'.format(Blue = pushBlue, green = pushGreen, red = pushRed, yellow = pushYellow, push = switchBlue, twist =twishBlack))
+
+def clearState(pushBlue,pushGreen,pushRed,pushYellow,switchBlue,twishBlack):
+    pushBlue = False
+    pushGreen = False
+    pushRed = False
+    pushYellow = False
+    switchBlue = False
+    twishBlack = False
+    return pushBlue,pushGreen,pushRed,pushYellow,switchBlue,twishBlack
+# while True:
+#     pushBlue,pushGreen,pushRed,pushYellow,switchBlue,twishBlack = updateState()
+#     print('Blue Button: {Blue} \n Green Button {green} \n Red Button {red} \n Yellow Button {yellow} \n Push Switch {push} \n Twist Swtich {twist}'.format(Blue = pushBlue, green = pushGreen, red = pushRed, yellow = pushYellow, push = switchBlue, twist =twishBlack))

@@ -2,6 +2,9 @@ import pygame
 import os
 import pygame.font
 import random
+import gpio
+
+
 
 
 def main():
@@ -36,7 +39,7 @@ class Game:
         self.just_scored = False
 
         self.highlighted = 0
-        self.highlighted_color = "red"
+        self.highlighted_color = (255,0,0)
         self.difficulty = "Easy"
         self.difficulty_set = False
         self.start_game = False
@@ -70,7 +73,6 @@ class Game:
             self.draw()
             if self.continue_game:
                 if not self.difficulty_set:   # first entrance into game
-
                     self.set_difficulty()
                 self.update()
                 self.decide_continue()
@@ -96,43 +98,46 @@ class Game:
         pygame.display.update()
 
     def main_menu(self):
+        lastinput = pygame.time.get_ticks()
         while not self.start_game:
-            self.menu_handler()
+            if pygame.time.get_ticks() >= lastinput:
+                pushBlue,pushGreen,pushRed,pushYellow,switchBlue,twishBlack = gpio.updateState()
+                lastinput = pygame.time.get_ticks() + 120
+            self.menu_handler(pushGreen,pushBlue,switchBlue)
+            pushBlue,pushGreen,pushRed,pushYellow,switchBlue,twishBlack = gpio.clearState(pushBlue,pushGreen,pushRed,pushYellow,switchBlue,twishBlack)
             self.draw_menu()
             self.game_clock.tick(self.fps)
 
-    def menu_handler(self):
+    def menu_handler(self,b1,b2,b3):
+
         events = pygame.event.get()
         for event in events:
             if event.type == pygame.QUIT:
                 self.close_clicked = True
-            elif event.type == pygame.KEYDOWN:  ############ REMOVE for actual implementation
-                if event.key == pygame.K_p:        # enter pressed  
-
-                    if self.highlighted == 0:
-                        self.start_game = True
-                    elif self.highlighted == 1:
-                        self.difficulty = "Easy"
-                    elif self.highlighted == 2:
-                        self.difficulty = "Medium"
-                    else:
-                        self.difficulty = "Hard"
-
-                elif event.key == pygame.K_w:                         # down pressed
-                    for i in range(len(self.highlighted_list)):
-                        self.highlighted_list[i] = "black"
-                    self.highlighted -= 1
-                    if self.highlighted == -1:                             # looped around
-                        self.highlighted = 3
-                    self.highlighted_list[self.highlighted] = self.highlighted_color
-
-                elif event.key == pygame.K_s:                         # up pressed
-                    for i in range(len(self.highlighted_list)):       # set all colors to black
-                        self.highlighted_list[i] = "black"
-                    self.highlighted += 1
-                    self.highlighted = self.highlighted % 4                # looped around
-                    self.highlighted_list[self.highlighted] = self.highlighted_color   # set word to highlight
-
+        if b1 == True:
+            for i in range(len(self.highlighted_list)):
+                self.highlighted_list[i] = "black"
+            self.highlighted -= 1
+            if self.highlighted == -1:                             # looped around
+                self.highlighted = 3
+            self.highlighted_list[self.highlighted] = self.highlighted_color
+            
+        elif b2 == True:
+            for i in range(len(self.highlighted_list)):       # set all colors to black
+                self.highlighted_list[i] = "black"
+            self.highlighted += 1
+            self.highlighted = self.highlighted % 4                # looped around
+            self.highlighted_list[self.highlighted] = self.highlighted_color   # set wor
+        elif b3 == True:
+            if self.highlighted == 0:
+                self.start_game = True
+            elif self.highlighted == 1:
+                self.difficulty = "Easy"
+            elif self.highlighted == 2:
+                self.difficulty = "Medium"
+            else:
+                self.difficulty = "Hard"
+        
     # enter once per game to set difficulty variables
     def set_difficulty(self):
         if self.difficulty_set == False:        # set difficutly to on first entrance
