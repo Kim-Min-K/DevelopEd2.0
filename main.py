@@ -227,7 +227,7 @@ class Green_Button():
         try:
             self.green_button_img = pygame.image.load(os.path.join('Assets', 'GreenButton.png'))
         except:
-            self.blue_button_img = pygame.image.load('/home/logan/Project/DevelopEd2.0/Assets/GreenButton.png')
+            self.green_button_img = pygame.image.load('/home/logan/Project/DevelopEd2.0/Assets/GreenButton.png')
         self.green_button_img = pygame.transform.scale(self.green_button_img, (550,550))
 
     def draw(self):
@@ -243,7 +243,7 @@ class Yellow_Button():
         try:
             self.yellow_button_img = pygame.image.load(os.path.join('Assets', 'YellowButton.png'))
         except:
-            self.blue_button_img = pygame.image.load('/home/logan/Project/DevelopEd2.0/Assets/YellowButton.png')
+            self.yellow_button_img = pygame.image.load('/home/logan/Project/DevelopEd2.0/Assets/YellowButton.png')
         self.yellow_button_img = pygame.transform.scale(self.yellow_button_img, (550,550))
 
     def draw(self):
@@ -259,7 +259,7 @@ class Twist_Switch():
         try:
             self.twist_switch_img = pygame.image.load(os.path.join('Assets', 'TwistSwitch.png'))
         except:
-            self.blue_button_img = pygame.image.load('/home/logan/Project/DevelopEd2.0/Assets/TwistSwitch.png')
+            self.twist_switch_img = pygame.image.load('/home/logan/Project/DevelopEd2.0/Assets/TwistSwitch.png')
         self.twist_switch_img = pygame.transform.scale(self.twist_switch_img, (550,550))
 
     def draw(self):
@@ -274,7 +274,7 @@ class Push_Switch():
         try:
             self.push_switch_img = pygame.image.load(os.path.join('Assets', 'PushSwitch.png'))
         except:
-            self.blue_button_img = pygame.image.load('/home/logan/Project/DevelopEd2.0/Assets/PushSwitch.png')
+            self.push_switch_img = pygame.image.load('/home/logan/Project/DevelopEd2.0/Assets/PushSwitch.png')
         self.push_switch_img = pygame.transform.scale(self.push_switch_img, (550,550))
 
     def draw(self):
