@@ -30,7 +30,10 @@ class Game:
         self.game_clock = pygame.time.Clock()
         self.close_clicked = False
         self.continue_game = True
+
+
         self.button_streak = 0
+        self.just_scored = False
 
         self.highlighted = 0
         self.highlighted_color = "red"
@@ -42,9 +45,20 @@ class Game:
         self.highlighted_list = [self.highlighted_color,"black","black","black"]
 
         self.buttons = []
+        self.current_button = 0
         self.red_button = Red_Button(surface)
         self.buttons.append(self.red_button)
         self.blue_button = Blue_Button(surface)
+        self.buttons.append(self.blue_button)
+        self.green_button = Green_Button(surface)
+        self.buttons.append(self.green_button)
+        self.yellow_button = Yellow_Button(surface)
+        self.buttons.append(self.yellow_button)
+        self.twist_switch = Twist_Switch(surface)
+        self.buttons.append(self.twist_switch)
+        self.push_switch = Push_Switch(surface)
+        self.buttons.append(self.push_switch)
+
         self.time_left = 60.0
 
     def play(self):
@@ -52,9 +66,11 @@ class Game:
             if not self.start_game:     # have not started the game yet
                 self.main_menu()
             self.handle_events()
+            self.check_if_scored()
             self.draw()
             if self.continue_game:
-                if not self.difficulty_set:
+                if not self.difficulty_set:   # first entrance into game
+
                     self.set_difficulty()
                 self.update()
                 self.decide_continue()
@@ -62,9 +78,16 @@ class Game:
                 self.continue_game = True
                 self.start_game = False
             self.game_clock.tick(self.fps)
+
+    def check_if_scored(self):
+        if self.just_scored == True:
+            pass
     
     def handle_events(self):
         events = pygame.event.get() # needs to be called or crashes
+
+    
+
 
     def draw(self):
         self.surface.fill(self.bg_color)
